@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Move uploaded file to the desired directory
     if (move_uploaded_file($file_tmp, $upload_path)) {
         // Insert data into database
-        $sql = "INSERT INTO uploaddata (songname, description, file_name, file_size, file_type) 
-                VALUES ('$songname', '$description', '$file_name', '$file_size', '$file_type')";
+        $sql = "INSERT INTO uploaddata (artist_id, songname, description, file_name, file_size, file_type) 
+                VALUES ('$artist_id', $songname', '$description', '$file_name', '$file_size', '$file_type')";
 
         if ($conn->query($sql) === TRUE) {
             echo "File uploaded successfully and data inserted into the database.";
